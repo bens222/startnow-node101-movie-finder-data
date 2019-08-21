@@ -40,7 +40,7 @@ app.get('/', function(req, res) {
             res.send(cache[tReq]);
         } else {
         axios.get('http://www.omdbapi.com/?t=' + tReq + '&apikey=8730e0e')
-            .then(function(response) {
+            .then((response) => {
                 cache[tReq] = response.data;
                 res.send(response.data);
             })

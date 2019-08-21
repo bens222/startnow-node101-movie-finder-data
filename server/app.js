@@ -34,7 +34,7 @@ app.get('/', function(req, res) {
             })
         }
     // Same process as above for 'j='
-    } else {
+    } else if (tReq) {
     tReq = tReq.replace(' ', '%20'); // Replaces the space in the string with %20 so the URL is correctly formatted
         if(cache.hasOwnProperty(tReq) === true) {
             res.send(cache[tReq]);
@@ -50,8 +50,9 @@ app.get('/', function(req, res) {
                 }
             })
         }
+    } else {
+        res.send('Hello')
     }
-
 });
 
 module.exports = app;
